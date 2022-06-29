@@ -1,4 +1,4 @@
 <?php 
 
 
-var_dump($_POST,$_FILES);
+echo json_encode($_FILES).PHP_EOL.json_encode($_POST);
