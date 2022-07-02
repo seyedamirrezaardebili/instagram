@@ -1,5 +1,5 @@
 <?php
-function checkRegin($user,$password){
+function checkRegin($user,$passwords){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -18,7 +18,7 @@ function checkRegin($user,$password){
     $admin= $q->fetch();
     $erorrs=[];
     if($user==$admin['user']){
-           if($password==$admin['password']) {
+           if($passwords==$admin['password']) {
                 session_start();
                 $_SESSION['adminUser']=true;
                 return 'ok';
@@ -34,5 +34,4 @@ function checkRegin($user,$password){
     }
     return $erorr;
 }
-
 echo checkRegin($_POST['user'],$_POST['password']);

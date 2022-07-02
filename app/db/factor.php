@@ -10,6 +10,7 @@ function factor(){
         img VARCHAR(512) ,
         user VARCHAR(512),
         status ENUM ('active','diactive','delete'),
+        finish ENUM ('active','diactive','block','accept'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
       

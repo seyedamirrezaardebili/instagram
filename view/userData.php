@@ -48,7 +48,7 @@
                         url:"../app/function/loadFactor.php",
                         method: 'post',
                         data:{
-                            factorid:$("#factorid").val(),
+                           factorid:$("#factorid").val(),
                             phone:$("#phone").val(),
                         },
                                 success:function(result){
@@ -75,6 +75,7 @@
 
                 $('#dataForm').submit(function(e){
                     e.preventDefault();
+                    var factorid=$("#factorid").val();
                     $.ajax({
                         type: 'POST',
                         url: '../app/function/uploadeData.php',
@@ -83,14 +84,35 @@
                         contentType: false,
                         cache: false,
                         processData:false,
-                        
-                        success: function(result){ 
-                            console.log(result);
+                        success: function(response){ 
+                               if(response==1){
+                                    window.location.replace("./finish.php?factorid="+factorid);
+                               }
                         }
-                        
                   });
                  
                 });                
+    </script>
+        <script>
+        $(document).ready(function(e){
+            $.ajax({
+                        url:"../app/function/phoneDataAjax.php",
+                        method: 'post',
+                        data:{
+                            phone:$("#phone").val(),
+                        },
+                                success:function(result){
+                                    var array = JSON.parse(result);
+                                    $('#name').val(array['name']);
+                                    $('#family').val(array['family']);
+                                    $('#adrress').val(array['address']);
+                                    $('#city').val(array['city']);
+                                    $('#state').val(array['state']);
+
+                                },  
+                    });
+        });
+
     </script>
 </body>
 </html>

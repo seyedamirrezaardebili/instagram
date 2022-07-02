@@ -21,6 +21,12 @@ function configCode($array){
     $q->execute($data);
     $admin= $q->fetch();
     if($admin['code']==$array['code'] && time()<=$admin['time']+180){
+        $data=[
+            'phone'=>$array['phone'],
+            'status'=>'active'
+        ];
+        $sql = "UPDATE phone set status=:status WHERE phone = :phone;";
+        $q = $conn->prepare($sql)->execute($data);
         echo '../view/userData.php?phone='.$array['phone'].'&factorid='.$array['factorid'];
     }
     elseif(time()>$admin['time']+180){
