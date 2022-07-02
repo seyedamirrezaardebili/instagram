@@ -57,10 +57,9 @@ function saveData($file,$post){
         'phone'=>$post['phone'],
         'img'=>$target_file,
         'factorId'=>$post['factorid'],
-        'status'=>'deactive',
-        'finish'=>'deactive'
+        'status'=>'deactive'
     ];
-    $sql = "INSERT INTO user (fullname , address ,phone ,img ,factorId ,status,finish ) VALUES ( :fullname , :address ,:phone ,:img ,:factorId ,:status,:finish)";
+    $sql = "INSERT INTO user (fullname , address ,phone ,img ,factorId ,status ) VALUES ( :fullname , :address ,:phone ,:img ,:factorId ,:status)";
     $conn->prepare($sql)->execute($data);
 
     //img

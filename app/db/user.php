@@ -9,8 +9,7 @@ function user(){
         phone VARCHAR(32) NOT NULL ,
         img VARCHAR(512) NOT Null,
         factorId VARCHAR(512),
-        status ENUM ('active','deactive','block'),
-        finish ENUM ('active','deactive','block','accept'),
+        status ENUM ('active','deactive','block','accept','delete'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
       

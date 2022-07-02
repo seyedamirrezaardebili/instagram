@@ -7,7 +7,7 @@ function img(){
         factorid VARCHAR(256) NOT NULL,
         address VARCHAR(12) NOT NULL,
         phone VARCHAR(12) NOT NULL,
-        status ENUM ('active','diactive'),
+        status ENUM ('active','deactive'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
       

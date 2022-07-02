@@ -7,7 +7,7 @@ function phone(){
         phone VARCHAR(256) NOT NULL UNIQUE,
         code VARCHAR(12) NOT NULL,
         time VARCHAR(256) NOT NULL,
-        status ENUM ('active','diactive','block'),
+        status ENUM ('active','deactive','block'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
       

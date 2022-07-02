@@ -9,8 +9,7 @@ function factor(){
         factorid VARCHAR(32) NOT NULL UNIQUE,
         img VARCHAR(512) ,
         user VARCHAR(512),
-        status ENUM ('active','diactive','delete'),
-        finish ENUM ('active','diactive','block','accept'),
+        status ENUM ('active','deactive','delete''block','accept'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
       

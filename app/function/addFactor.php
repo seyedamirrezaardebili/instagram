@@ -31,11 +31,10 @@ function addFactor(){
         'number'=>$number,
         'totalfee'=>$totalfee,
         'factorid'=>$id,
-        'status'=>'diactive',
-        'finish'=>'diactive'
+        'status'=>'deactive',
     ];
 
-    $sql = "INSERT INTO factor (number, totalfee,factorid,status,finish) VALUES (  :number , :totalfee , :factorid , :status , :finish)";
+    $sql = "INSERT INTO factor (number, totalfee,factorid,status) VALUES (  :number , :totalfee , :factorid , :status )";
     // use exec() because no results are returned)
     $conn->prepare($sql)->execute($data);
     file_put_contents('../../stronge/json/pishfactor.json',json_encode([]));
