@@ -1,17 +1,17 @@
 <?php
 include './connectDatabase.php';
-function user(){
+function user_address(){
     $conn=connectDatabase();
-    $sql = "CREATE TABLE user (
+    $sql = "CREATE TABLE user_address (
         id INT(32) NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE ,
-        fullname VARCHAR(256) NOT null,
-        phone VARCHAR(32) NOT NULL UNIQUE ,
-        mail VARCHAR(128) ,
-        status ENUM ('active','deactive','block','accept','delete'),
+        userid VARCHAR(256) NOT NULL,
+        phone VARCHAR(32) NOT NULL ,
+        address VARCHAR(128) NOT NULL ,
+        status ENUM ('active','delete') not null,
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
       
         // use exec() because no results are returned
         $conn->exec($sql);
 }
-user();
+user_address();

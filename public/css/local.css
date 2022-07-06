@@ -1,0 +1,184 @@
+:root {
+    --cream-color: #F1E6DC;
+    --gray-color: #555555;
+
+}
+
+@media only screen and (max-width: 992px) {
+    /* Form Component *******/
+
+    .form-wrapper{
+        width: 95%;
+    }
+    .receiptBox, .form-wrapper{
+        border: 2px solid var(--cream-color); 
+        border-radius: 9px;
+    }
+    .receiptBox>h3{
+        border-radius: 9px 9px 0 0;
+    }
+
+    .form-box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 10px 0 !important;
+    }
+    .form-label, .text, .form-inp{
+        font-size: 14px;
+    }
+    .deskTitle{
+        display: none !important;
+    }
+    .mobTitle{
+        height: 8%;
+        border-radius: 9px 9px 0 0;
+        font-size: 22px;
+    }
+    .inForm{
+        padding: 3% !important;
+    }
+/* Login Component ***************/
+    .LoginForm{
+        border-radius: 9px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+/* Form Component *******/
+    .main-wrap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-wrapper{
+        width: 70%;
+        padding: 3% !important;
+    }
+    .receiptBox, .form-wrapper{
+        border-radius: 20px !important;
+        border: 5px solid var(--cream-color); 
+    }
+    .receiptBox>h3{
+        border-radius: 20px 20px 0 0;
+    }
+    .form-box{
+        width: 50%;
+        margin: 20px 0 !important;
+    }
+    .form-label, .text, .form-inp{
+        font-size: 16px;
+    }
+ /* Login Component *******/   
+    .LoginForm{
+        width: 45%;
+        border-radius: 14px;
+    }
+
+    .mobTitle{
+        display: none !important;
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    /* Form Component *******/
+        
+        .form-wrapper{
+            width: 50%;
+        }
+    }
+
+/* Login Component **********************************************/
+/*mobile*******/
+@media only screen and (max-width: 768px) {
+
+    .loginWrap{
+        background: url(../img/FormBackDesk.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    .loginWrap::after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.7;
+        position: absolute;
+        top: 0;left: 0;
+    }
+    .LoginForm{
+        width: 90%;
+        border: 2px solid var(--cream-color);
+        position: relative;
+        z-index: 2;
+    }
+    .LoginForm>h3, .receiptBox>h3{
+        border-bottom: 2px solid var(--cream-color);
+        font-size: 18px;
+    }
+
+
+
+/* form success ************* */
+    .fileWrap>figure{
+        width: 80%;
+    }
+}
+
+
+/*tablet to desktop***************/
+
+@media only screen and (min-width: 768px) {
+    .loginWrap{
+        background: url(../img/FormBackDesk.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .LoginForm{
+        width: 60%;
+        border: 5px solid var(--cream-color);
+    }
+
+    .LoginForm>h3, .receiptBox>h3{
+        border-bottom: 5px solid var(--cream-color);
+        font-size: 21px;
+    }
+
+
+/* form success ************* */
+    .fileWrap>figure{
+        width: 80%;
+    }
+    
+}
+@media only screen and (min-width: 992px) {
+    
+        .LoginForm{
+            width: 45%;
+            border-radius: 14px;
+        }
+    
+    }
+
+@media only screen and (min-width: 1200px) {
+
+    .LoginForm{
+        width: 35% !important;
+    }
+    
+}
+@media only screen and (min-width: 1600px) {
+
+    .LoginForm{
+        width: 30% !important;
+    }
+    
+}

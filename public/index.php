@@ -1,4 +1,4 @@
 <?php
 
 
-include_once '../view/loginAdmin.php';
+include_once '../view/login.php';

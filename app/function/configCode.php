@@ -14,7 +14,7 @@ function configCode($array){
         die($e->getMessage());
       }
     $data=[
-        'phone'=>$array['phone'],
+        'phone'=>$_COOKIE['phone'],
     ];
     $sql = "SELECT * FROM phone Where phone= :phone ";
     $q = $conn->prepare($sql);
@@ -22,12 +22,12 @@ function configCode($array){
     $admin= $q->fetch();
     if($admin['code']==$array['code'] && time()<=$admin['time']+180){
         $data=[
-            'phone'=>$array['phone'],
+            'phone'=>$_COOKIE['phone'],
             'status'=>'active'
         ];
         $sql = "UPDATE phone set status=:status WHERE phone = :phone;";
         $q = $conn->prepare($sql)->execute($data);
-        echo '../view/userData.php?phone='.$array['phone'].'&factorid='.$array['factorid'];
+        echo 'ok';
     }
     elseif(time()>$admin['time']+180){
         echo 'time filed';

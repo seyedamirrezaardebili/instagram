@@ -6,15 +6,18 @@ function phoneDataAjax($phone){
     $q= $conn->prepare($sql);
     $q->execute(array(':phone' => $phone));
     $data= $q->fetch();
-    $address=explode('  ',$data['address']);
-    $fullname=explode('  ',$data['fullname']);
-    $data['state']=$address[0];
-    $data['city']=$address[1];
-    $data['address']=$address[2];
-    $data['name']=$fullname[0];
-    $data['family']=$fullname[1];
-    unset($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data['fullname']);
+    $sql = "SELECT address FROM user_address Where phone= :phone && status='active' ";
+    $q= $conn->prepare($sql);
+    $q->execute(array(':phone' => $phone));
+    $a= $q->fetch();
+    unset($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$a[0]);
+    $b=explode('***',$a['address']);
+
+    $data['province']=$b[0];
+    $data['town']=$b[1];
+    $data['address']=$b[2];
+    $data['postalCode']=$b[3];
 
     return json_encode($data);
 }
-echo  phoneDataAjax($_POST['phone']);
+echo  phoneDataAjax($_COOKIE['phone']);

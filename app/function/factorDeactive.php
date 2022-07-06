@@ -17,7 +17,7 @@ function factorDeactive(){
       }
       $sql = 'SELECT * FROM factor Where status= :status';
       $q = $conn->prepare($sql);
-      $q->execute(array(':status' => "deactive"));
+      $q->execute(array(':status' => "active"));
       $admin= $q->fetchAll();
       return json_encode( $admin);
 

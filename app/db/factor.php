@@ -4,11 +4,11 @@ function factor(){
     $conn=connectDatabase();
     $sql = "CREATE TABLE factor (
         id INT(32) NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE ,
-        number int(32) ,
+        userid  VARCHAR(30) NOT NULL,
+        phone VARCHAR(30) NOT NULL,
+        number int(32) NOT NULL,
         totalfee VARCHAR(30) NOT NULL,
         factorid VARCHAR(32) NOT NULL UNIQUE,
-        img VARCHAR(512) ,
-        user VARCHAR(512),
         status ENUM ('active','deactive','delete''block','accept'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";

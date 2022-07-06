@@ -6,45 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <body>
-    <table>
-    <thead>
-        <tr>
-            <th>
-                del
-            </th>
-            <th>
-                name
-            </th>
-            <th>
-                number
-            </th>
-            <th>
-                fee
-            </th> 
-            <th>
-                rowFee
-            </th>  
-        <tr>
-    </thead>
-    <tbody  id="showFile">
-    <p id='total'></p>
-    </tbody>
-    </table>
-    <form   id="addFactor">
-        <input type="text" name="name" id="name">name<br>
-        <input type="text" name="number" id="number"  value="1">number<br>
-        <input type="text" name='fee' id='fee' >fee<br>
-        <input type="hidden" name="totalfee" id="totalfee"  value="0">;
-        <input type="hidden" name="count" id="count" value="0" >
-        <button type="submit" >submit</button>
-    </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
 
-    <button id='taid' name='taid'>sabte nahaii</button>
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="15"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="./addFactor.php">addFactor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./confirmFactor.php">confirmFactor</a>
+        </li>
+
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+        <i class="fas fa-shopping-cart"></i>
+
+      <!-- Notifications -->
+      <div class="dropdown">
+    
+      <a
+          class="text-reset me-3 dropdown-toggle hidden-arrow"
+          href="./confirmFactor.php"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+        <!-- //TODO:please set svg   -->
+        <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger" id='numbers'></span>
+        </a>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+</br>
+</br>
+<form id="addFactor">
+  <div class="row">
+    <div class="col-5">
+      <input type="text" class="form-control" placeholder="name" id="name">
+    </div>
+    <div class="col-2">
+      <input type="number" class="form-control" placeholder="number" id="number" value="1">
+    </div>
+    <div class="col-3">
+      <input type="number" class="form-control" placeholder="fee" id="fee">
+    </div>
+    <input type="hidden" name="totalfee" id="totalfee"  value="0">
+    <input type="hidden" name="count" id="count" value="0" >
+    </br></br>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">افزودن کالا</button>
+    </br></br>
+  </div>
+</form>
+</br></br>
+
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">number</th>
+                <th scope="col">fee</th>
+                <th scope="col">rowfee</th>
+                <th scope="col">DELET</th>
+            </tr>
+
+        </thead>
+        <tbody  id="showFile">
+           
+
+
+
+        </tbody>
+        <tr>
+                <th id='total'>
+
+                </th>
+        </tr>
+    </table>
+
+    <button type="button" class="btn btn-success"  id='taid' name='taid'>ثبت فاکتور</button>
+
+    <div id='showFactorId'>
+
+    </div>
     <script>
         $("#addFactor").submit(function(e){
+          $("#showFactorId").empty();
             e.preventDefault();
             var count=parseInt($('#count').val());
             var totalfee=parseInt($('#totalfee').val());
@@ -69,18 +156,22 @@
                                 $('#showFile').empty();
                                 for(let i=0 ;i<array.length ;i++){
                                     $('#showFile').append("<tr id='"+i+"'><tr>");
-                                    var txt1= $("<td></td>").text(array[i]['name']);
-                                    var txt2= $("<td></td>").text(array[i]['number']);
-                                    var txt3= $("<td></td>").text(array[i]['fee']);
-                                    var txt4= $("<td></td>").text(array[i]['rowFee']);
-                                    var txt5= $('<button></button>').text('delet').val(i);
+                                    var txt1= $("<td></td>").text(parseInt(i)+1);
+                                    var txt2= $("<td></td>").text(array[i]['name']);
+                                    var txt3= $("<td></td>").text(array[i]['number']);
+                                    var txt4= $("<td></td>").text(array[i]['fee']);
+                                    var txt5= $("<td></td>").text(array[i]['rowFee']);
+                                    var txt6= $('<button type="button" class="btn btn-link btn-sm px-3 bg-danger text-white" data-ripple-color="dark "></button>').text('Delete').val(i);
                                     $('#totalfee').val(array[i]['totalfee']);
                                      t='#'+i
-                                    $(t).append(txt5,txt1,txt2,txt3,txt4);
+                                    $(t).append(txt1,txt2,txt3,txt4,txt5,txt6);
                                 }
                                 $("#count").val(array[array.length - 1]['count']);
                                 console.log(array[array.length - 1]['count']);
                                 $("#total").text($("#totalfee").val());
+                                $("#number").val(1);
+                                $("#name").val("");
+                                $("#fee").val(0);
                             },  
 
                 });     
@@ -97,6 +188,7 @@
 
         $('#showFile').on('click','button',function(e){
                 e.preventDefault();
+                $("#showFactorId").empty();
                 var delate = $(this).val() ;
                 $.ajax({
                     url:"../app/function/deleteRowPishFactor.php",
@@ -109,17 +201,17 @@
                                 $('#showFile').empty();
                                 for(let i=0 ;i<array.length ;i++){
                                     $('#showFile').append("<tr id='"+i+"'><tr>");
-                                    var txt1= $("<td></td>").text(array[i]['name']);
-                                    var txt2= $("<td></td>").text(array[i]['number']);
-                                    var txt3= $("<td></td>").text(array[i]['fee']);
-                                    var txt4= $("<td></td>").text(array[i]['rowFee']);
-                                    var txt5= $('<button></button>').text('delet').val(i);
+                                    var txt1= $("<td></td>").text(parseInt(i)+1);
+                                    var txt2= $("<td></td>").text(array[i]['name']);
+                                    var txt3= $("<td></td>").text(array[i]['number']);
+                                    var txt4= $("<td></td>").text(array[i]['fee']);
+                                    var txt5= $("<td></td>").text(array[i]['rowFee']);
+                                    var txt6= $('<button type="button" class="btn btn-link btn-sm px-3 bg-danger text-white" data-ripple-color="dark "></button>').text('Delete').val(i);
                                     $('#totalfee').val(array[i]['totalfee']);
                                      t='#'+i
-                                    $(t).append(txt5,txt1,txt2,txt3,txt4);
+                                    $(t).append(txt1,txt2,txt3,txt4,txt5,txt6);
                                 }
                                 $("#count").val(array[array.length - 1]['count']);
-                                console.log(array[array.length - 1]['count']);
                                 $("#total").text($("#totalfee").val());
                             },  
                 });
@@ -130,15 +222,23 @@
         <script>
             $('#taid').click(function(e){
                 e.preventDefault();
+                $("#showFactorId").empty();
                 if($('#count').val()!='0'){
                     $.ajax({
                         url:"../app/function/addFactor.php",
                                 method: 'post',
-                                data:{
-                                    
-                                },
                                 success:function(result){
-                                    window.location.replace(result);
+                                        console.log(result);
+                                        $('#count').val(0);
+                                        $('#totalfee').val(0);
+                                        $("#number").val(1);
+                                        $("#name").val("");
+                                        $("#fee").val(0);
+                                        $('#showFile').empty();
+                                        $('#total').val(0);
+                                        $("#total").text(0);
+                                        var text=$("<h1></h1>").text(result);
+                                        $("#showFactorId").append(text);
                                 },  
                     });
                 }
@@ -147,6 +247,19 @@
                 }
             });
         </script>
-
+        
+<script>
+     $(document).ready(function(e){
+            $.ajax({
+                        url:"../app/function/factorDeactive.php",
+                        method: 'post',
+                                success:function(result){
+                                    var array = JSON.parse(result);
+                                    $('#numbers').text(array.length);
+                                },  
+                    });
+        });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

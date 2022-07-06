@@ -28,19 +28,18 @@ function addFactor(){
 
 
     $data=[
-        'number'=>$number,
-        'totalfee'=>$totalfee,
-        'factorid'=>$id,
+        'number'=>(int)$number,
+        'totalfee'=>strval($totalfee),
+        'factorid'=>strval($id),
         'status'=>'deactive',
-    ];
-
+    ];  
     $sql = "INSERT INTO factor (number, totalfee,factorid,status) VALUES (  :number , :totalfee , :factorid , :status )";
     // use exec() because no results are returned)
     $conn->prepare($sql)->execute($data);
     file_put_contents('../../stronge/json/pishfactor.json',json_encode([]));
-    return  '../view/userPhoneConfig.php?factorid='.$id;
+    echo  $id;
 }
 
-echo addFactor();
+addFactor();
 
 

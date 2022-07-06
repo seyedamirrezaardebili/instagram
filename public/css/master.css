@@ -1,0 +1,358 @@
+:root {
+    --cream-color: #F1E6DC;
+    --gray-color: #555555;
+    --red-color: #FF0000;
+    --green-color: #14AD3B;
+}
+
+*{
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+@font-face {
+    font-family: "IRANSansXRegular";
+    src: local("IRANSansXRegular"),
+      url("../fonts/IRANSansXRegular.ttf") format("truetype");
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+/* Common properties***************************************** */
+
+.form-main,.deskTitle, .mobTitle, .inForm, .address-box, .btn-box,  .LoginForm, .receiptBox>h3, .receiptBox>form, .fileWrap, .receiptBox, .savedAddress, .close{
+    display: flex;
+}
+
+.deskTitle,.mobTitle, .inForm, .address-box, .btn-box, .LoginForm, .receiptBox>h3, .receiptBox>form, .fileWrap, .receiptBox, .close{
+    justify-content: center;
+}
+
+
+.form-main, .deskTitle,.mobTitle, .btn-box, .loginWrap, .receiptBox>h3, .receiptBox>form, .fileWrap, .savedAddress, .close{
+    align-items: center;
+}
+
+/* Form Component***************************************** */
+body {
+    font-family: "IRANSansXRegular";
+    font-size: 18px;
+    color: var(--gray-color);
+}
+
+
+.form-main{
+    flex-direction: column;
+    background: url(../img/FormBackDesk.png);
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 1% !important;
+}
+.form-main::-webkit-scrollbar {
+    display: none;
+  }
+.deskTitle, .mobTitle{
+    font-weight: 500;
+    background-color: var(--gray-color);
+    color: white;
+}
+.deskTitle{
+    font-weight: 500;
+    border-radius: 9px;
+    font-size: 26px;
+    border: 3px solid var(--cream-color);
+    width: 410px;
+    padding: 10px 0 !important;
+    margin-bottom: -20px !important;
+    position: relative;
+    z-index: 1;
+}
+.form-wrapper{
+    background: rgb(255, 255, 255);
+    position: relative;
+    height: max-content;
+    padding-bottom: 80px !important;
+}
+
+.inForm{
+    width: 100%;
+    height: 100%;
+}
+
+.form-label{
+    width: 100%;
+    margin-bottom: 10px !important;
+}
+.form-inp{
+    height: 60px;
+}
+.form-inp::placeholder{
+    color: #B7B7B7;
+}
+
+#town{
+    display: none;
+}
+.address-box{
+    width: 100%;
+}
+
+#insta-id{
+    resize: none;
+}
+.inForm, .address-box, .receiptBox, .fileWrap, .receiptBox>form, .close, .wrap, .LoginForm>div, .LoginForm{
+    flex-wrap: wrap;
+}
+.address-box>label{
+    width: 100%;
+}
+
+.form-inp, .address-box>textarea, .LoginForm>div>input, .receiptBox button{
+    border-radius: 9px;
+    background-color: var(--cream-color);
+    border: none;
+    outline: none;
+    width: 90%;
+    padding: 15px !important;
+}
+.form-inp, .address-box>textarea, .LoginForm>div>input{
+    background-color: var(--cream-color);
+}
+
+
+.address-box>textarea{
+    height: 200px;
+    resize: none;
+}
+
+.btn-box>button, .LoginForm>button, .close>button{
+    outline: none;
+    box-direction: none;
+    border-radius: 9px;
+    background-color: var(--gray-color);
+    color: white;
+    box-shadow: 2px 5px 14px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    padding: 10px !important;
+    width: 50%;
+}
+
+.btn-box{
+    width: 100%;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.red{
+    color: red;
+    font-size: 13px;
+    margin: 5px 0 !important;
+    width: 100%;
+}
+
+/* Form Success ***************************************** */
+.receiptBox{
+    background-color: #fff;
+    border-radius: 9px;
+    height: inherit;
+}
+.receiptBox>h3{
+    height: 8%;
+}
+
+.fileWrap{
+    height: 60%;
+    width: 90%;
+    border: 1px dashed var(--gray-color);
+    border-radius:9px ;
+    overflow: hidden;
+    position: relative;
+}
+
+.receiptBox>form{
+width: 100%;
+height: 90%;
+
+}
+
+.fileWrap label{
+    display:block;
+    line-height:50px;
+    padding: 0 10px !important;
+    text-align:center;
+    background:var(--gray-color);
+    color:#fff;
+    font-size:15px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size: 13px;
+    box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.25);
+}
+
+.fileWrap input{
+    display: none;
+}
+.fileWrap>figure{
+    height: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.fileWrap>figure>img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.fileWrap>figure>figcaption{
+    position:absolute ;
+    z-index: 2;
+    cursor: pointer;
+    top: 1%; right: 2.5%;
+}
+.fileWrap>figure>figcaption>ion-icon{
+    color: var(--red-color);
+    font-size: 22px;
+}
+.receiptBox button{
+    background-color: var(--green-color);
+    color: white;
+    box-shadow: 2px 5px 14px 0px rgba(0, 0, 0, 0.25);
+    height: 55px;
+}
+
+.text{
+    width: 97%;
+    font-size: 16px;
+}
+
+.receiptBox .form-inp{
+    height: 55px;
+}
+
+.fileWrap span{
+    position: absolute;
+    bottom: 5%;
+}
+
+
+.savedAddress{
+    width: 90%;
+    border-radius: 9px;
+    border: 1px solid var(--gray-color);
+    height: 50px;
+    justify-content: space-between;
+    font-size: 14px;
+}
+#file-preview{
+    display: none;
+}
+
+/* final Component ***************************************** */
+.success{
+    height: 100vh;
+    overflow: hidden;
+}
+.success::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #55555569;
+    top: 0; right: 0;
+    z-index: 4;
+}
+
+.close{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 6;
+    height: 22%;
+    border-radius: 9px;
+}
+.close>p{
+    width: 100%;
+    text-align: center;
+    color: var(--green-color);
+}
+
+
+
+  /* Login Component ***************************************** */
+  .loginWrap{
+      height: 100vh;
+      width: 100%;
+  }
+  .LoginForm{
+      background-color: white;
+      height: 40%;
+  }
+  .LoginForm>h3{
+      height: 22%;
+    border-radius: 9px 9px 0 0;
+  }
+  .LoginForm>h3, .receiptBox>h3{
+    background-color: var(--gray-color);
+    color: white;
+    width: 100%;
+}
+  .LoginForm>div>input, .LoginForm>button{
+      width: 70%;
+      height: 70px;
+  }
+
+  .LoginForm>div>label{
+      width: 90%;
+  }
+
+  .process>span{
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--cream-color);
+  }
+  .process{
+      width: 230px;
+  }
+
+.black{
+    background-color: var(--gray-color) !important;
+}
+/* Login Success ***************************************** */
+.txt{
+    width: 70%;
+}
+.txt> *{
+    font-size: 14px;
+}
+
+.txt> a:nth-of-type(1){
+    color: var(--red-color);
+}
+
+/* Login Success ***************************************** */
+
+#resend{
+    display: none;
+    cursor: pointer;
+}
+
+
