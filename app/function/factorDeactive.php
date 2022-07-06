@@ -15,9 +15,9 @@ function factorDeactive(){
       } catch(PDOException $e) {
         die($e->getMessage());
       }
-      $sql = 'SELECT * FROM factor Where status= :status';
+      $sql = 'SELECT * FROM factor  INNER JOIN  img on factor.id = img.factorid    WHERE  factor.status="deactive"';
       $q = $conn->prepare($sql);
-      $q->execute(array(':status' => "active"));
+      $q->execute(array(':status' => "deactive"));
       $admin= $q->fetchAll();
       return json_encode( $admin);
 

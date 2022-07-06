@@ -56,7 +56,7 @@ function saveData($file,$post){
     $imgData=[
         'factorId'=>$post['factorId'],
         'address'=>$target_file,
-        'status'=>'diactive',
+        'status'=>'active',
         'phone'=>$_COOKIE['phone'],
     ];
     $sql = "INSERT INTO img ( address ,factorId ,status,phone ) VALUES ( :address  ,:factorId ,:status,:phone)";

@@ -3,10 +3,10 @@ include './connectDatabase.php';
 function user(){
     $conn=connectDatabase();
     $sql = "CREATE TABLE user (
-        id INT(32) NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE ,
-        fullname VARCHAR(256) NOT null,
+        id INT(255) NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE ,
+        fullname VARCHAR(255) NOT null,
         phone VARCHAR(32) NOT NULL UNIQUE ,
-        mail VARCHAR(128) ,
+        mail VARCHAR(255) ,
         status ENUM ('active','deactive','block','accept','delete'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";

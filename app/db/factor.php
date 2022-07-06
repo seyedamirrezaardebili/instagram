@@ -3,12 +3,10 @@ include './connectDatabase.php';
 function factor(){
     $conn=connectDatabase();
     $sql = "CREATE TABLE factor (
-        id INT(32) NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE ,
-        userid  VARCHAR(30) NOT NULL,
-        phone VARCHAR(30) NOT NULL,
+        id INT(255) NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE ,
         number int(32) NOT NULL,
         totalfee VARCHAR(30) NOT NULL,
-        factorid VARCHAR(32) NOT NULL UNIQUE,
+        factorid VARCHAR(255) NOT NULL UNIQUE,
         status ENUM ('active','deactive','delete''block','accept'),
         timecreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
